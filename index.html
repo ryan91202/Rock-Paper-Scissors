@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>rock.paper</title>
+</head>
+<style>
+body {
+text-align: center;
+background-color: gray;
+}
+#image-container {
+display: flex;
+gap: 20px; 
+justify-content: center;
+}
+
+button {
+background: gray ;
+width: fit-content;
+border: 5px solid black;
+padding 10px;
+height: 30px;
+border-radius: 10000px;
+}
+
+
+.borded-title {
+border: 5px solid black;
+padding: 15px;
+display: inline-block;
+margin: 5px auto; 
+text-align: center;
+border-radius: 100000px;
+background: gray;
+}
+
+</style>
+
+
+
+<body>
+<h1 class = "borded-title">Rock, Paper, Scissors</h1>
+<div>
+<button id ="rock">Reset icon</button>
+</div>
+<p> Just you classic game of Rock, Paper, Scissors enjoy..</p>
+<div id = "imageContainer"></div>
+</body>
+<script>
+const images = [
+{id: 1, url: 'rock.jpg' },
+{id: 2, url: 'paper.jpg'},
+{id: 3, url: 'scissors.jpg'}
+];
+document.getElementById('rock').addEventListener('click', displayRandomImage);
+
+function getRandomImage() {
+const randomIndex = Math.floor(Math.random()*images.length);
+return images[randomIndex];
+}
+
+function displayRandomImage() {
+const image = getRandomImage();
+const imageContainer = document.getElementById('imageContainer');
+imageContainer.style.display = 'block'; 
+imageContainer.innerHTML = '' ;
+const imgElement = document.createElement ('img');
+imgElement.src = image.url;
+imgElement.alt = 'A random icon';
+imageContainer.appendChild (imgElement);
+}
+
+
+</script>
+</html>
